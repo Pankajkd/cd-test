@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+ - source: index.html
+   destination: /var/www/html
+   permission:
+           - object: /var/www/html
+             pattern: "*.html"
+             owner: root
+             group: root
+             mode: 0755
+             type:
+                     - file
+             hooks:
+                     BeforeInstall:
+                             - location: scripts/install.sh
+                               timeout: 3600
+                               runas: root
+                               ApplicationStart: 
+                             - location: scripts/start.sh
+                               timeout: 3600
+                               runas: root
+
