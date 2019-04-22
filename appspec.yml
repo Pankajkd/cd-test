@@ -1,8 +1,9 @@
 version: 0.0
 os: linux
+files:
  - source: index.html
    destination: /var/www/html
-   permission:
+   permissions:
            - object: /var/www/html
              pattern: "*.html"
              owner: root
